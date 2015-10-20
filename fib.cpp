@@ -22,12 +22,21 @@ int fib(int n,int *a) {
 	}
 }
 
+int fibDynamic(int n) {
+	int g = 0, f = 1;
+	while (n--) {
+		g = g + f;
+		f = g - f;
+	}
+	return g;
+}
+
 int main() {
 	int *a = new int[N];
 	for (int i = 0; i < N; i++)
 		a[i] = -1;
 	for (int i = 0; i < N; i++)
-		cout << i << ": " << fib(i,a) << endl;
+		cout << i << ": " << fib(i,a)  << " dynaminc: " <<fibDynamic(i) << endl;
 	return 0;
 }
 
